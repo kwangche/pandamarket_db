@@ -11,13 +11,13 @@ mongoose.connect(process.env.DATABASE_URL).then(() => console.log('Connected to 
 const app = express();
 
 const corsOptions = {
-  origin: ['http://192.168.219.100:3000/', 'https://pandamarket-fs-8-kwangche.netlify.app/'],
+  origin: ['http://localhost:3000', 'https://pandamarket-fs-8-kwangche.netlify.app'],
   methods: ['GET', 'POST', 'PATCH', 'DELETE'],
   allowedHeaders: ['Content-Type'],
 };
 
-app.use(express.json());
 app.use(cors(corsOptions));
+app.use(express.json());
 
 function asyncHandler(handler) {
   async function asyncReqHandler(req, res) {
